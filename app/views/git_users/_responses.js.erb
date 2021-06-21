@@ -1,0 +1,26 @@
+<% if @responses.present? %>
+  <h2>Repositories List</h2>
+  <p><%= params[:search] %> User Name user's Repositories.</p>            
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Watchers Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @responses.each do |response| %>
+        <tr>
+          <td><img src='<%= response["owner"]["avatar_url"] %>' class="avatar" alt="Avatar" height="60" width="60"></td>
+          <td><%= response["name"] %></td>
+          <td><%= response["description"] %></td>
+          <td><%= response["watchers_count"] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No Repositories found with the User Name <%= params[:search] %>.</p>            
+<% end %>

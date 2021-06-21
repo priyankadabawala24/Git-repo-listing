@@ -1,0 +1,15 @@
+<div class="form-group">
+	<a href="users/sign_out" data-method="delete">Log out</a>
+</div>
+
+<%= form_with url: "/git_users/search", method: :post do |f| %>
+  <div class="form-group">
+    <%= f.label :search %>
+    <%= f.text_field :search, autofocus: true, placeholder: 'Search repository via User Name', class: 'form-control', value: (params[:search] if params[:search].present?) %>
+	</div>
+	 <div class="form-group">
+    <%= f.submit  'Search', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<div class="response"></div>
